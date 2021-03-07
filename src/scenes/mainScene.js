@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import Player from '../entities/player';
 
 export default class MainScene extends Phaser.Scene {
   constructor() {
@@ -6,13 +7,22 @@ export default class MainScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.atlas('player', '../src/assets/player.png', '../src/assets/player_atlas.json');
+    Player.preload(this);
+    this.load.image('tiles', '../src/assets/tileset.png');
+    this.load.tilemapTiledJSON('map', '../src/assets/map.json');
   }
 
   create() {
-    this.player = new Phaser.Physics.Matter.Sprite(this.matter.world, 0, 0, 'player', 'idle_01');
-    this.add.existing(this.player);
-    this.inputKeys = this.input.keyboard.addKeys({
+    this.player = new Player({
+      scene: this, x: 100, y: 100, texture: 'doctor', frame: 'idle_01',
+    });
+    const map = this.make.tilemap({ key: 'map' });
+    const tileset = map.addTilesetImage('tileset', 'tiles', 32, 32, 0, 0);
+    const layer1 = map.createStaticLayer('Tile Layer 1', tileset, 0, 0);
+    const layer2 = map.createStaticLayer('Tile Layer 2', tileset, 0, 0);
+    layer1.setCollisionByProperty({ collids: true });
+    this.matter.world.convertTilemapLayer(layer1);
+    this.player.inputKeys = this.input.keyboard.addKeys({
       up: Phaser.Input.Keyboard.KeyCodes.A,
       down: Phaser.Input.Keyboard.KeyCodes.W,
       left: Phaser.Input.Keyboard.KeyCodes.S,
@@ -21,21 +31,6 @@ export default class MainScene extends Phaser.Scene {
   }
 
   update() {
-    const speed = 2.5;
-    const playerVelocity = new Phaser.Math.Vector2();
-    if (this.inputKeys.left.isDown) {
-      playerVelocity.x = -1;
-    } else if (this.inputKeys.right.isDown) {
-      playerVelocity.x = 1;
-    }
-
-    if (this.inputKeys.up.isDown) {
-      playerVelocity.y = -1;
-    } else if (this.inputKeys.down.isDown) {
-      playerVelocity.y = 1;
-    }
-    playerVelocity.normalize();
-    playerVelocity.scale(speed);
-    this.player.setVelocity(playerVelocity.x, playerVelocity.y);
+    this.player.update();
   }
 }

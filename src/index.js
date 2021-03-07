@@ -1,10 +1,10 @@
 import Phaser from 'phaser';
-import PhaserMatterCollisionPlugin from 'phaser-matter-collision-plugin/src';
+import PhaserMatterCollisionPlugin from 'phaser-matter-collision-plugin';
 import MainScene from './scenes/mainScene';
 
 const config = {
-  width: 800,
-  height: 600,
+  width: 512,
+  height: 512,
   backgroundColor: 0x999999,
   type: Phaser.AUTO,
   parent: 'survival-game',
