@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import Player from '../entities/player';
+import Enemy from '../entities/enemies';
 
 export default class MainScene extends Phaser.Scene {
   constructor() {
@@ -8,6 +9,7 @@ export default class MainScene extends Phaser.Scene {
 
   preload() {
     Player.preload(this);
+    Enemy.preload(this);
     this.load.image('tiles', '../src/assets/tileset.png');
     this.load.tilemapTiledJSON('map', '../src/assets/map.json');
   }
@@ -15,6 +17,9 @@ export default class MainScene extends Phaser.Scene {
   create() {
     this.player = new Player({
       scene: this, x: 100, y: 150, texture: 'doctor', frame: 'idle_01',
+    });
+    this.enemy = new Enemy({
+      scene: this, x: 200, y: 200, texture: 'enemy', frame: 'largeeliteknight_walk_1',
     });
     const map = this.make.tilemap({ key: 'map' });
     const tileset = map.addTilesetImage('tileset', 'tiles', 32, 32, 0, 0);
@@ -35,6 +40,7 @@ export default class MainScene extends Phaser.Scene {
 
   update() {
     this.player.update();
+    this.enemy.update();
     this.cameras.main.startFollow(this.player);
   }
 }

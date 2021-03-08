@@ -1,0 +1,28 @@
+{
+    "anims": [
+        {
+            "key": "enemy_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "enemy",
+                    "frame": "largeeliteknight_walk_1"
+                },
+                {
+                    "key": "enemy",
+                    "frame": "largeeliteknight_walk_4"
+                },
+                {
+                    "key": "enemy",
+                    "frame": "largeeliteknight_walk_2"
+                },
+                {
+                    "key": "enemy",
+                    "frame": "largeeliteknight_walk_3"
+                }
+            ]
+        }
+    ]
+}
