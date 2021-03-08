@@ -32,6 +32,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     } else if (this.inputKeys.down.isDown) {
       playerVelocity.y = 1;
     }
+
     playerVelocity.normalize();
     playerVelocity.scale(speed);
     this.setVelocity(playerVelocity.x, playerVelocity.y);
