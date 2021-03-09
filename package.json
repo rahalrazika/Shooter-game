@@ -22,6 +22,7 @@
     "phaser-matter-collision-plugin": "^0.10.2"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.12.11",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^7.1.5",
@@ -29,6 +30,7 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
+    "file-loader": "^6.2.0",
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-csstree-validator": "^1.9.0",

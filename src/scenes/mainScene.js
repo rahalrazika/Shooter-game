@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import Player from '../entities/player';
 import Enemy from '../entities/enemies';
+// import Fire from '../entities/fire';
 
 export default class MainScene extends Phaser.Scene {
   constructor() {
@@ -21,6 +22,7 @@ export default class MainScene extends Phaser.Scene {
     this.enemy = new Enemy({
       scene: this, x: 200, y: 200, texture: 'enemy', frame: 'largeeliteknight_walk_1',
     });
+
     const map = this.make.tilemap({ key: 'map' });
     const tileset = map.addTilesetImage('tileset', 'tiles', 32, 32, 0, 0);
     const layer1 = map.createLayer('Tile Layer 1', tileset, 0, 0);
@@ -28,6 +30,7 @@ export default class MainScene extends Phaser.Scene {
     const layer2 = map.createLayer('Tile Layer 2', tileset, 0, 0);
     layer1.setCollisionByProperty({ collide: true });
     this.matter.world.convertTilemapLayer(layer1);
+
     this.player.inputKeys = this.input.keyboard.addKeys({
       up: Phaser.Input.Keyboard.KeyCodes.A,
       down: Phaser.Input.Keyboard.KeyCodes.W,
