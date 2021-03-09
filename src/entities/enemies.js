@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 
-export default class Enemy extends Phaser.GameObjects.Matter.Sprite {
+export default class Enemy extends Phaser.Physics.Matter.Sprite {
   constructor(data) {
     const {
       scene, x, y, texture, frame,
