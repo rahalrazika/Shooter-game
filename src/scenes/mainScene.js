@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import Player from '../entities/player';
 import Enemy from '../entities/enemies';
-// import Fire from '../entities/fire';
+import Fire from '../entities/fire';
 
 export default class MainScene extends Phaser.Scene {
   constructor() {
@@ -11,6 +11,7 @@ export default class MainScene extends Phaser.Scene {
   preload() {
     Player.preload(this);
     Enemy.preload(this);
+    Fire.preload(this);
     this.load.image('tiles', '../src/assets/tileset.png');
     this.load.tilemapTiledJSON('map', '../src/assets/map.json');
   }
