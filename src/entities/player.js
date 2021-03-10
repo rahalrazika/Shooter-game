@@ -53,7 +53,6 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
 
     if (this.inputKeys.space.isDown) {
       this.anims.play('doctor_shoot', true);
-      // this.fireGun(this);
     }
   }
 }

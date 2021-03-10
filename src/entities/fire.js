@@ -1,17 +1,11 @@
 import Phaser from 'phaser';
 
-class Fire extends Phaser.GameObjects.Sprite {
+export default class Fire extends Phaser.GameObjects.Sprite {
   constructor(data) {
     const {
-      scene, x, y, texture, frame,
+      scene, x, y, texture,
     } = data;
-    super(scene.matter.world, x, y, texture, frame);
+    super(scene.matter.world, x, y, texture);
     this.scene.add.existing(this);
   }
-
-  static preload(scene) {
-    scene.load.atlas('fire', '../src/assets/fire1.png');
-  }
 }
-
-export default Fire;
