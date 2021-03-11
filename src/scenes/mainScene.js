@@ -1,8 +1,8 @@
 import Phaser from 'phaser';
 import Player from '../entities/player';
-import Enemies from '../entities/enemies';
 import fire from '../assets/fire1.png';
-// import Fire from '../entities/fire';
+import Enemy from '../entities/enemy';
+import Fire from '../entities/fire';
 
 export default class MainScene extends Phaser.Scene {
   constructor() {
@@ -11,7 +11,7 @@ export default class MainScene extends Phaser.Scene {
 
   preload() {
     Player.preload(this);
-    Enemies.preload(this);
+    Enemy.preload(this);
     this.load.image('fire', fire);
     this.load.image('tiles', '../src/assets/tileset.png');
     this.load.tilemapTiledJSON('map', '../src/assets/map.json');
@@ -21,15 +21,10 @@ export default class MainScene extends Phaser.Scene {
     this.player = new Player({
       scene: this, x: 100, y: 150, texture: 'doctor', frame: 'idle_01',
     });
-    this.enemy = new Enemies({
-      scene: this, x: 200, y: 200, texture: 'enemy', frame: 'largeeliteknight_walk_1',
+
+    this.enemy = new Enemy({
+      scene: this, x: 200, y: 450, texture: 'enemy', frame: 'largeeliteknight_walk_1',
     });
-    /* const enemies = this.add.group({
-      classType: Enemies,
-    });
-    enemies.get({
-      scene: this, x: 200, y: 200, texture: 'enemy', frame: 'largeeliteknight_walk_1',
-    }); */
     const map = this.make.tilemap({ key: 'map' });
     const tileset = map.addTilesetImage('tileset', 'tiles', 32, 32, 0, 0);
     const layer1 = map.createLayer('Tile Layer 1', tileset, 0, 0);
