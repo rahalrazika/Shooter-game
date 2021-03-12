@@ -12,7 +12,6 @@ export default class Enemy extends Phaser.Physics.Matter.Sprite {
     this.x = randomX;
     this.y = randomY;
     this.scene.add.existing(this);
-    
   }
 
   static preload(scene) {

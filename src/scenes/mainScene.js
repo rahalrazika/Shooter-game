@@ -7,6 +7,7 @@ import Fire from '../entities/fire';
 export default class MainScene extends Phaser.Scene {
   constructor() {
     super('MainScene');
+    this.enemies = [];
   }
 
   preload() {
@@ -22,9 +23,18 @@ export default class MainScene extends Phaser.Scene {
       scene: this, x: 100, y: 150, texture: 'doctor', frame: 'idle_01',
     });
 
-    this.enemy = new Enemy({
+    /*     this.enemy = new Enemy({
       scene: this, x: 200, y: 450, texture: 'enemy', frame: 'largeeliteknight_walk_1',
-    });
+    }); */
+    for (let i = 0; i < 3; i += 1) {
+      this.enemies.push(new Enemy({
+        scene: this, x: 300 + i * 10, y: 450, texture: 'enemy', frame: 'largeeliteknight_walk_1',
+      }));
+    }
+    this.enemies = this.add.group();
+    this.enemyLasers = this.add.group();
+    this.playerLasers = this.add.group();
+
     const map = this.make.tilemap({ key: 'map' });
     const tileset = map.addTilesetImage('tileset', 'tiles', 32, 32, 0, 0);
     const layer1 = map.createLayer('Tile Layer 1', tileset, 0, 0);
@@ -45,7 +55,8 @@ export default class MainScene extends Phaser.Scene {
 
   update() {
     this.player.update();
-    this.enemy.update();
+    // this.enemy.update();
     this.cameras.main.startFollow(this.player);
+    this.enemies.forEach(enemy => enemy.update());
   }
 }
