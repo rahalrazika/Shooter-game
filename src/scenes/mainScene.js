@@ -31,9 +31,6 @@ export default class MainScene extends Phaser.Scene {
         scene: this, x: 300 + i * 10, y: 450, texture: 'enemy', frame: 'largeeliteknight_walk_1',
       }));
     }
-    this.enemies = this.add.group();
-    this.enemyLasers = this.add.group();
-    this.playerLasers = this.add.group();
 
     const map = this.make.tilemap({ key: 'map' });
     const tileset = map.addTilesetImage('tileset', 'tiles', 32, 32, 0, 0);
