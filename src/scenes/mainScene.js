@@ -23,6 +23,12 @@ export default class MainScene extends Phaser.Scene {
       scene: this, x: 100, y: 150, texture: 'doctor', frame: 'idle_01',
     });
 
+    this.playerFires = this.physics.add.group({
+      defaultKey: 'fire',
+      maxSize: 10,
+    });
+    this.playerFires.enableBody = true;
+
     /*     this.enemy = new Enemy({
       scene: this, x: 200, y: 450, texture: 'enemy', frame: 'largeeliteknight_walk_1',
     }); */
@@ -55,5 +61,21 @@ export default class MainScene extends Phaser.Scene {
     // this.enemy.update();
     this.cameras.main.startFollow(this.player);
     this.enemies.forEach(enemy => enemy.update());
+    this.playerFires.children.each((b) => {
+      if (b.active) {
+        if (b.y < 0) {
+          b.setActive(false);
+        }
+      }
+    });
+  }
+
+  shoot() {
+    const fire = new Fire(this, this.player.x, this.player.y - 5);
+    if (fire) {
+      fire.setActive(true);
+      fire.setVisible(true);
+      fire.body.velocity.y = -200;
+    }
   }
 }
