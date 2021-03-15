@@ -8,7 +8,7 @@ export default class Fire extends Phaser.GameObjects.Sprite {
   }
 
   fires(x, y) {
-    this.setPosition(x + 15, y - this.scene.player.height / 10);
+    this.setPosition(x + 20, y - this.scene.player.height / 7);
     this.setActive(true);
     this.setVisible(true);
   }

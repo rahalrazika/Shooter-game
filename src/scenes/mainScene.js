@@ -28,9 +28,6 @@ export default class MainScene extends Phaser.Scene {
       runChildUpdate: true,
     });
 
-    /*     this.enemy = new Enemy({
-      scene: this, x: 200, y: 450, texture: 'enemy', frame: 'largeeliteknight_walk_1',
-    }); */
     for (let i = 0; i < 3; i += 1) {
       this.enemies.push(new Enemy({
         scene: this, x: 300 + i * 10, y: 450, texture: 'enemy', frame: 'largeeliteknight_walk_1',
@@ -57,7 +54,6 @@ export default class MainScene extends Phaser.Scene {
 
   update() {
     this.player.update();
-    // this.enemy.update();
     this.cameras.main.startFollow(this.player);
     this.enemies.forEach(enemy => enemy.update());
 

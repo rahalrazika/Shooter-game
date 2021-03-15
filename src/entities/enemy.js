@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-import Fire from './fire';
 
 export default class Enemy extends Phaser.Physics.Matter.Sprite {
   constructor(data) {
