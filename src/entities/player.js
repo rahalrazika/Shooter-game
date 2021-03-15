@@ -50,10 +50,5 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     } else {
       this.anims.play('doctor_idle', true);
     }
-
-    if (this.inputKeys.space.isDown) {
-      this.anims.play('doctor_shoot', true);
-      this.input.on(this.shoot, this);
-    }
   }
 }
