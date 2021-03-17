@@ -26,5 +26,6 @@ export default class Enemy extends Phaser.Physics.Matter.Sprite {
   update() {
     this.anims.play('enemy_walk', true);
   }
-  
+
+ 
 }

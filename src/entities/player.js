@@ -14,7 +14,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     const compoundBody = Body.create({
 
       parts: [playerCollider, playerSensor],
-      frictionAir: 0.35,
+      frictionAir: 0,
     });
     this.setExistingBody(compoundBody);
   }
@@ -42,7 +42,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     } else if (this.inputKeys.down.isDown) {
       playerVelocity.y = 1;
     }
-
+    
     playerVelocity.normalize();
     playerVelocity.scale(speed);
     this.setVelocity(playerVelocity.x, playerVelocity.y);

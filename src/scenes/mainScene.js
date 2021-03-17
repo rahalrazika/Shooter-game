@@ -22,28 +22,15 @@ export default class MainScene extends Phaser.Scene {
     this.player = new Player({
       scene: this, x: 100, y: 150, texture: 'doctor', frame: 'idle_01',
     });
-
-  /*   this.playerFires = this.add.group({
-      classType: Fire,
-      runChildUpdate: true,
-    }); */
-    this.playerFire = new Fire(this, 300, 200);
-    for (let i = 0; i < 3; i += 1) {
-      this.enemies.push(new Enemy({
-        scene: this,
-        x: Phaser.Math.Between(0, 400),
-        y: Phaser.Math.Between(0, 400),
-        texture: 'enemy',
-        frame: 'largeeliteknight_walk_1',
-      }));
-    }
+    this.player.setFixedRotation();
+    this.playerFire = new Fire(this, 100, 150);
+    this.newEnemy(3);
     this.collisionMap = {
       objectA: this.playerFire,
-      // objectA: this.player,
-      // objectB: this.enemies[0],
+     
       callback: eventData => {
         if (eventData.bodyA.label === 'fireCollider' && eventData.bodyB.label === 'enemyCollider') {
-          console.log(eventData);
+          console.log('hit');
         }
       },
     };
@@ -88,6 +75,18 @@ export default class MainScene extends Phaser.Scene {
 
       // if (fire) {
       //  }
+    }
+  }
+
+  newEnemy(amount) {
+    for (let i = 0; i < amount; i += 1) {
+      this.enemies.push(new Enemy({
+        scene: this,
+        x: Phaser.Math.Between(0, 400),
+        y: Phaser.Math.Between(0, 400),
+        texture: 'enemy',
+        frame: 'largeeliteknight_walk_1',
+      }));
     }
   }
 }
