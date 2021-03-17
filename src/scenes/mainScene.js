@@ -23,23 +23,42 @@ export default class MainScene extends Phaser.Scene {
       scene: this, x: 100, y: 150, texture: 'doctor', frame: 'idle_01',
     });
 
-    this.playerFires = this.add.group({
+  /*   this.playerFires = this.add.group({
       classType: Fire,
       runChildUpdate: true,
-    });
-
+    }); */
+    this.playerFire = new Fire(this, 300, 200);
     for (let i = 0; i < 3; i += 1) {
       this.enemies.push(new Enemy({
-        scene: this, x: 300 + i * 10, y: 450, texture: 'enemy', frame: 'largeeliteknight_walk_1',
+        scene: this,
+        x: Phaser.Math.Between(0, 400),
+        y: Phaser.Math.Between(0, 400),
+        texture: 'enemy',
+        frame: 'largeeliteknight_walk_1',
       }));
     }
+    this.collisionMap = {
+      objectA: this.playerFire,
+      // objectA: this.player,
+      // objectB: this.enemies[0],
+      callback: eventData => {
+        if (eventData.bodyA.label === 'fireCollider' && eventData.bodyB.label === 'enemyCollider') {
+          console.log(eventData);
+        }
+      },
+    };
+
+    this.enemies.forEach((enemy, i) => {
+      this.collisionMap[`enemy_${i}`] = enemy;
+    });
+    this.matterCollision.addOnCollideStart(this.collisionMap);
 
     const map = this.make.tilemap({ key: 'map' });
     const tileset = map.addTilesetImage('tileset', 'tiles', 32, 32, 0, 0);
     const layer1 = map.createLayer('Tile Layer 1', tileset, 0, 0);
-    // eslint-disable-next-line no-unused-vars
     const layer2 = map.createLayer('Tile Layer 2', tileset, 0, 0);
     layer1.setCollisionByProperty({ collide: true });
+    layer2.setCollisionByProperty({ collide: true });
     this.matter.world.convertTilemapLayer(layer1);
 
     this.player.inputKeys = this.input.keyboard.addKeys({
@@ -56,14 +75,19 @@ export default class MainScene extends Phaser.Scene {
     this.player.update();
     this.cameras.main.startFollow(this.player);
     this.enemies.forEach(enemy => enemy.update());
+    this.playerFire.fires(this.playerFire.x + 10, this.playerFire.y);
 
     if (this.player.inputKeys.space.isDown) {
       this.player.anims.play('doctor_shoot', true);
-      const fire = this.playerFires.get();
 
-      if (fire) {
-        fire.fires(this.player.x, this.player.y);
-      }
+      // const fire = this.playerFires.get();
+      const fire = this.playerFire;
+      fire.x = this.player.x;
+      fire.y = this.player.y;
+      // this.collisionMap.fire = fire;
+
+      // if (fire) {
+      //  }
     }
   }
 }

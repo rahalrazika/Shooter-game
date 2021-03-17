@@ -6,11 +6,16 @@ export default class Enemy extends Phaser.Physics.Matter.Sprite {
       scene, x, y, texture, frame,
     } = data;
     super(scene.matter.world, x, y, texture, frame);
-    const randomY = Math.random() * 300;
-    const randomX = Math.random() * 300;
-    this.x = randomX;
-    this.y = randomY;
     this.scene.add.existing(this);
+    const { Body, Bodies } = Phaser.Physics.Matter.Matter;
+    const enemyCollider = Bodies.circle(this.x, this.y, 12, { isSensor: false, label: 'enemyCollider' });
+    const enemySensor = Bodies.circle(this.x, this.y, 24, { isSensor: false, label: 'enemySensor' });
+    const compoundBody = Body.create({
+
+      parts: [enemyCollider, enemySensor],
+      frictionAir: 0,
+    });
+    this.setExistingBody(compoundBody);
   }
 
   static preload(scene) {
@@ -21,4 +26,5 @@ export default class Enemy extends Phaser.Physics.Matter.Sprite {
   update() {
     this.anims.play('enemy_walk', true);
   }
+  
 }
