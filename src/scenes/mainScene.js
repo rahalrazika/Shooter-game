@@ -7,7 +7,7 @@ import Fire from '../entities/fire';
 export default class MainScene extends Phaser.Scene {
   constructor() {
     super('MainScene');
-    this.enemies = [];
+    // this.enemies = [];
   }
 
   preload() {
@@ -24,10 +24,27 @@ export default class MainScene extends Phaser.Scene {
     });
     this.player.setFixedRotation();
     this.playerFire = new Fire(this, 100, 150);
-    this.newEnemy(3);
-    this.collisionMap = {
+    this.enemies = this.add.group();
+
+    this.time.addEvent({
+      delay: 1000,
+      callback() {
+        const enemy = new Enemy({
+          scene: this,
+          x: Phaser.Math.Between(100, 700),
+          y: Phaser.Math.Between(100, 700),
+          texture: 'enemy',
+          frame: 'largeeliteknight_walk_1',
+        });
+        this.enemies.add(enemy);
+      },
+      callbackScope: this,
+      loop: true,
+    });
+
+    /*     this.collisionMap = {
       objectA: this.playerFire,
-     
+
       callback: eventData => {
         if (eventData.bodyA.label === 'fireCollider' && eventData.bodyB.label === 'enemyCollider') {
           console.log('hit');
@@ -39,7 +56,7 @@ export default class MainScene extends Phaser.Scene {
       this.collisionMap[`enemy_${i}`] = enemy;
     });
     this.matterCollision.addOnCollideStart(this.collisionMap);
-
+  */
     const map = this.make.tilemap({ key: 'map' });
     const tileset = map.addTilesetImage('tileset', 'tiles', 32, 32, 0, 0);
     const layer1 = map.createLayer('Tile Layer 1', tileset, 0, 0);
@@ -61,9 +78,14 @@ export default class MainScene extends Phaser.Scene {
   update() {
     this.player.update();
     this.cameras.main.startFollow(this.player);
-    this.enemies.forEach(enemy => enemy.update());
-    this.playerFire.fires(this.playerFire.x + 10, this.playerFire.y);
 
+    // this.enemy.forEach(enemy => enemy.update());
+    for (let i = 0; i < this.enemies.getChildren().length; i += 1) {
+      const enemy = this.enemies.getChildren()[i];
+      enemy.setFixedRotation();
+      enemy.update();
+    }
+    this.playerFire.fires(this.playerFire.x + 10, this.playerFire.y);
     if (this.player.inputKeys.space.isDown) {
       this.player.anims.play('doctor_shoot', true);
 
@@ -75,18 +97,6 @@ export default class MainScene extends Phaser.Scene {
 
       // if (fire) {
       //  }
-    }
-  }
-
-  newEnemy(amount) {
-    for (let i = 0; i < amount; i += 1) {
-      this.enemies.push(new Enemy({
-        scene: this,
-        x: Phaser.Math.Between(0, 400),
-        y: Phaser.Math.Between(0, 400),
-        texture: 'enemy',
-        frame: 'largeeliteknight_walk_1',
-      }));
     }
   }
 }

@@ -60,6 +60,11 @@
                  "id":10,
                  "properties":[
                         {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"collids",
                          "type":"bool",
                          "value":true
@@ -70,6 +75,7 @@
                  "objectgroup":
                     {
                      "draworder":"index",
+                     "id":2,
                      "name":"",
                      "objects":[
                             {
@@ -93,6 +99,17 @@
                              "width":12.1632170313424,
                              "x":19.6806623299823,
                              "y":0.283855706682436
+                            }, 
+                            {
+                             "height":0,
+                             "id":3,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":0,
+                             "x":12,
+                             "y":22
                             }],
                      "opacity":1,
                      "type":"objectgroup",
@@ -101,6 +118,11 @@
                      "y":0
                     },
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -133,6 +155,11 @@
                     },
                  "properties":[
                         {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"collids",
                          "type":"bool",
                          "value":true
@@ -163,6 +190,11 @@
                      "y":0
                     },
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -195,6 +227,11 @@
                     },
                  "properties":[
                         {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"collids",
                          "type":"bool",
                          "value":true
@@ -225,6 +262,11 @@
                      "y":0
                     },
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -257,6 +299,11 @@
                     },
                  "properties":[
                         {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"collids",
                          "type":"bool",
                          "value":true
@@ -265,6 +312,11 @@
                 {
                  "id":42,
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -308,7 +360,21 @@
                     },
                  "properties":[
                         {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"collids",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
+                {
+                 "id":44,
+                 "properties":[
+                        {
+                         "name":"collides",
                          "type":"bool",
                          "value":true
                         }]
@@ -336,7 +402,13 @@
                      "visible":true,
                      "x":0,
                      "y":0
-                    }
+                    },
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
                 }, 
                 {
                  "id":46,
@@ -375,6 +447,11 @@
                     },
                  "properties":[
                         {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"collids",
                          "type":"bool",
                          "value":true
@@ -405,6 +482,11 @@
                      "y":0
                     },
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -437,6 +519,11 @@
                     },
                  "properties":[
                         {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"collids",
                          "type":"bool",
                          "value":true
@@ -467,6 +554,11 @@
                      "y":0
                     },
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -499,6 +591,11 @@
                     },
                  "properties":[
                         {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"collids",
                          "type":"bool",
                          "value":true
@@ -529,6 +626,11 @@
                      "y":0
                     },
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -561,6 +663,11 @@
                     },
                  "properties":[
                         {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"collids",
                          "type":"bool",
                          "value":true
@@ -591,6 +698,11 @@
                      "y":0
                     },
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -623,6 +735,11 @@
                     },
                  "properties":[
                         {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"collids",
                          "type":"bool",
                          "value":true
@@ -653,6 +770,11 @@
                      "y":0
                     },
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -716,6 +838,11 @@
                     },
                  "properties":[
                         {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"collids",
                          "type":"bool",
                          "value":true
@@ -755,11 +882,22 @@
                      "visible":true,
                      "x":0,
                      "y":0
-                    }
+                    },
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
                 }, 
                 {
                  "id":124,
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -803,6 +941,11 @@
                     },
                  "properties":[
                         {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"collids",
                          "type":"bool",
                          "value":true
@@ -841,7 +984,35 @@
                 }, 
                 {
                  "id":138,
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "id":2,
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":30,
+                             "id":1,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":32.6666666666667,
+                             "x":-1.33333333333334,
+                             "y":2.66666666666667
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    },
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -850,7 +1021,35 @@
                 }, 
                 {
                  "id":139,
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "id":2,
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":31.3333333333333,
+                             "id":1,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":30,
+                             "x":0.666666666666668,
+                             "y":0.666666666666668
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    },
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -880,11 +1079,22 @@
                      "visible":true,
                      "x":0,
                      "y":0
-                    }
+                    },
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
                 }, 
                 {
                  "id":156,
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -916,6 +1126,11 @@
                      "y":0
                     },
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -954,8 +1169,94 @@
                         }]
                 }, 
                 {
-                 "id":172,
+                 "id":171,
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "id":2,
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":0,
+                             "id":1,
+                             "name":"",
+                             "polygon":[
+                                    {
+                                     "x":0,
+                                     "y":0
+                                    }, 
+                                    {
+                                     "x":-27.3333333333333,
+                                     "y":-2.91472868217054
+                                    }, 
+                                    {
+                                     "x":0,
+                                     "y":28.4186046511628
+                                    }],
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":0,
+                             "x":30.6666666666667,
+                             "y":2.91472868217054
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    },
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
+                {
+                 "id":172,
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "id":2,
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":0,
+                             "id":1,
+                             "name":"",
+                             "polygon":[
+                                    {
+                                     "x":0,
+                                     "y":0
+                                    }, 
+                                    {
+                                     "x":-13.3333333333333,
+                                     "y":14
+                                    }, 
+                                    {
+                                     "x":-12,
+                                     "y":-18
+                                    }],
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":0,
+                             "x":13.3333333333333,
+                             "y":18.6666666666667
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    },
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -1218,6 +1519,11 @@
                     },
                  "properties":[
                         {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"collids",
                          "type":"bool",
                          "value":true
@@ -1249,6 +1555,11 @@
                     },
                  "properties":[
                         {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"collids",
                          "type":"bool",
                          "value":true
@@ -1256,7 +1567,35 @@
                 }, 
                 {
                  "id":202,
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "id":2,
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":29.3333333333333,
+                             "id":1,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":32,
+                             "x":0.666666666666668,
+                             "y":1.33333333333333
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    },
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -1267,6 +1606,11 @@
                  "id":203,
                  "properties":[
                         {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"collids",
                          "type":"bool",
                          "value":true
@@ -1275,6 +1619,11 @@
                 {
                  "id":204,
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -1418,6 +1767,11 @@
                     },
                  "properties":[
                         {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"collids",
                          "type":"bool",
                          "value":true
@@ -1449,6 +1803,11 @@
                     },
                  "properties":[
                         {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"collids",
                          "type":"bool",
                          "value":true
@@ -1457,6 +1816,11 @@
                 {
                  "id":236,
                  "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"collids",
                          "type":"bool",
@@ -1704,7 +2068,6 @@
                  "objectgroup":
                     {
                      "draworder":"index",
-                     "id":2,
                      "name":"",
                      "objects":[
                             {

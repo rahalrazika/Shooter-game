@@ -13,7 +13,7 @@ export default class Enemy extends Phaser.Physics.Matter.Sprite {
     const compoundBody = Body.create({
 
       parts: [enemyCollider, enemySensor],
-      frictionAir: 0,
+      frictionAir: 0.05,
     });
     this.setExistingBody(compoundBody);
   }
@@ -25,7 +25,6 @@ export default class Enemy extends Phaser.Physics.Matter.Sprite {
 
   update() {
     this.anims.play('enemy_walk', true);
+    this.body.force.x = -0.0001;
   }
-
- 
 }
