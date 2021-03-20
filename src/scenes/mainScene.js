@@ -7,7 +7,6 @@ import Fire from '../entities/fire';
 export default class MainScene extends Phaser.Scene {
   constructor() {
     super('MainScene');
-    // this.enemies = [];
   }
 
   preload() {
@@ -27,7 +26,7 @@ export default class MainScene extends Phaser.Scene {
     this.enemies = this.add.group();
 
     this.time.addEvent({
-      delay: 1000,
+      delay: 10000,
       callback() {
         const enemy = new Enemy({
           scene: this,
@@ -41,8 +40,32 @@ export default class MainScene extends Phaser.Scene {
       callbackScope: this,
       loop: true,
     });
+    this.score = 0;
 
-    /*     this.collisionMap = {
+    this.scoreText = this.add.text(30, -30, 'Score: 0', { fontSize: '17px', fill: '#ffffff' });
+
+    this.matter.world.on('collisionstart', (event, bodyA, bodyB) => {
+      if ((bodyA.label === 'fireCollider' && bodyB.label === 'enemyCollider') || (bodyB.label === 'fireCollider' && bodyA.label === 'enemyCollider')) {
+        const enemyCollider = bodyA === 'enemyCollider' ? bodyA : bodyB;
+        const fire = enemyCollider.gameObject;
+        if (fire.isBeingDestroyed) {
+          true;
+        }
+        fire.isBeingDestroyed = true;
+
+        this.matter.world.remove(enemyCollider);
+
+        this.tweens.add({
+          targets: fire,
+          alpha: { value: 0, duration: 150, ease: 'fire' },
+          onComplete: function (fire) { fire.destroy(); }.bind(this, fire),
+        });
+        this.score += 20;
+        this.scoreText.setText(`Score: ${this.score}`);
+      }
+    });
+
+    /*  this.collisionMap = {
       objectA: this.playerFire,
 
       callback: eventData => {
@@ -51,7 +74,8 @@ export default class MainScene extends Phaser.Scene {
         }
       },
     };
-
+    this.matterCollision.addOnCollideStart(this.collisionMap); */
+    /*
     this.enemies.forEach((enemy, i) => {
       this.collisionMap[`enemy_${i}`] = enemy;
     });
@@ -66,9 +90,9 @@ export default class MainScene extends Phaser.Scene {
     this.matter.world.convertTilemapLayer(layer1);
 
     this.player.inputKeys = this.input.keyboard.addKeys({
-      up: Phaser.Input.Keyboard.KeyCodes.A,
-      down: Phaser.Input.Keyboard.KeyCodes.W,
-      left: Phaser.Input.Keyboard.KeyCodes.S,
+      up: Phaser.Input.Keyboard.KeyCodes.S,
+      down: Phaser.Input.Keyboard.KeyCodes.X,
+      left: Phaser.Input.Keyboard.KeyCodes.Q,
       right: Phaser.Input.Keyboard.KeyCodes.D,
       space: Phaser.Input.Keyboard.KeyCodes.SPACE,
 
@@ -83,20 +107,19 @@ export default class MainScene extends Phaser.Scene {
     for (let i = 0; i < this.enemies.getChildren().length; i += 1) {
       const enemy = this.enemies.getChildren()[i];
       enemy.setFixedRotation();
+      enemy.body.collideWorldBounds = true;
+      this.matter.world.setBounds(0, 0, game.config.width, game.config.height);
+      enemy.flipX = true;
+      enemy.setBounce(1);
+
       enemy.update();
     }
     this.playerFire.fires(this.playerFire.x + 10, this.playerFire.y);
     if (this.player.inputKeys.space.isDown) {
       this.player.anims.play('doctor_shoot', true);
-
-      // const fire = this.playerFires.get();
       const fire = this.playerFire;
       fire.x = this.player.x;
       fire.y = this.player.y;
-      // this.collisionMap.fire = fire;
-
-      // if (fire) {
-      //  }
     }
   }
 }

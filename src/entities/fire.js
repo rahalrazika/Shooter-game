@@ -17,7 +17,7 @@ export default class Fire extends Phaser.Physics.Matter.Sprite {
   }
 
   fires(x, y) {
-    this.setPosition(x + 20, y - this.scene.player.height / 60);
+    this.setPosition(x + 20, y - 1);
     this.setActive(true);
     this.setVisible(true);
   }
