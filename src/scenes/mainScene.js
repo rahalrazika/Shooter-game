@@ -40,6 +40,7 @@ export default class MainScene extends Phaser.Scene {
       callbackScope: this,
       loop: true,
     });
+
     this.score = 0;
 
     this.scoreText = this.add.text(30, -30, 'Score: 0', { fontSize: '17px', fill: '#ffffff' });
@@ -49,16 +50,14 @@ export default class MainScene extends Phaser.Scene {
         const enemyCollider = bodyA === 'enemyCollider' ? bodyA : bodyB;
         const fire = enemyCollider.gameObject;
         if (fire.isBeingDestroyed) {
-          true;
+          fire.isBeingDestroyed = true;
         }
         fire.isBeingDestroyed = true;
-
         this.matter.world.remove(enemyCollider);
-
         this.tweens.add({
           targets: fire,
           alpha: { value: 0, duration: 150, ease: 'fire' },
-          onComplete: function (fire) { fire.destroy(); }.bind(this, fire),
+          onComplete: function destroy(fire) { fire.destroy(); }.bind(this, fire),
         });
         this.score += 20;
         this.scoreText.setText(`Score: ${this.score}`);
@@ -103,15 +102,12 @@ export default class MainScene extends Phaser.Scene {
     this.player.update();
     this.cameras.main.startFollow(this.player);
 
-    // this.enemy.forEach(enemy => enemy.update());
     for (let i = 0; i < this.enemies.getChildren().length; i += 1) {
       const enemy = this.enemies.getChildren()[i];
       enemy.setFixedRotation();
       enemy.body.collideWorldBounds = true;
-      this.matter.world.setBounds(0, 0, game.config.width, game.config.height);
       enemy.flipX = true;
       enemy.setBounce(1);
-
       enemy.update();
     }
     this.playerFire.fires(this.playerFire.x + 10, this.playerFire.y);

@@ -27,4 +27,9 @@ export default class Enemy extends Phaser.Physics.Matter.Sprite {
     this.anims.play('enemy_walk', true);
     this.body.force.x = -0.0001;
   }
+
+  enemyOut() {
+    this.reset(this.x, 700);
+    this.body.velocity.y = 50 + Math.random() * 200;
+  }
 }
