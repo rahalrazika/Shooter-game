@@ -21,6 +21,7 @@ export default class MainScene extends Phaser.Scene {
     this.player = new Player({
       scene: this, x: 100, y: 150, texture: 'doctor', frame: 'idle_01',
     });
+
     this.player.setFixedRotation();
     this.playerFire = new Fire(this, 100, 150);
     this.enemies = this.add.group();
@@ -117,5 +118,7 @@ export default class MainScene extends Phaser.Scene {
       fire.x = this.player.x;
       fire.y = this.player.y;
     }
+
   }
+
 }

@@ -1,6 +1,10 @@
 import Phaser from 'phaser';
 import PhaserMatterCollisionPlugin from 'phaser-matter-collision-plugin/src';
 import MainScene from './scenes/mainScene';
+import IntroScene from './scenes/introScene';
+
+import "./APi/api";
+
 
 const config = {
   width: 512,
@@ -16,7 +20,7 @@ const config = {
   dom: {
     createContainer: true,
   },
-  scene: [MainScene],
+  scene: [IntroScene, MainScene],
   scale: {
     zoom: 2,
   },
