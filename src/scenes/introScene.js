@@ -4,9 +4,10 @@ export default class IntroScene extends Phaser.Scene {
   constructor() {
     super('IntroScene');
     this.speech = [
-      ` Hello player, Welcome to my personal spaceship. 
+      `  
+    Hello player, Welcome to my personal spaceship. 
     I’m Dr. Kureiji, I know it sounds
-     just like crazy hihi 😊.
+     just like crazy hihi 😁.
      Today I need your help 
      to save my spaceship from the evil
     creatures made in the lab, 
@@ -22,10 +23,8 @@ export default class IntroScene extends Phaser.Scene {
     Use W to go DOWN.
     Use space to Shoot
 
-
-
-
-             `,
+    Let's have some fun 🤪
+ `,
     ];
   }
 
@@ -40,10 +39,13 @@ export default class IntroScene extends Phaser.Scene {
     this.background.setScale(0.2);
     this.background.setOrigin(0);
     this.start.setScale(0.1);
-    this.text = this.add.text(200, 20, this.speech, { fontSize: '10px', fill: '#0000FF', backgroundColor: 'white' });
-
+    this.text = this.add.text(200, 20, this.speech, {
+      fill: '#000000',
+      backgroundColor: 'white',
+      font: 'Lucida Sans Typewriter',
+    });
     this.start.setInteractive().on('pointerdown', function startScene() {
-      this.scene.start('MainScene');
+      this.scene.start('MenuScene');
     },
     this);
   }

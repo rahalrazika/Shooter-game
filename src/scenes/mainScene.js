@@ -31,8 +31,8 @@ export default class MainScene extends Phaser.Scene {
       callback() {
         const enemy = new Enemy({
           scene: this,
-          x: Phaser.Math.Between(100, 700),
-          y: Phaser.Math.Between(100, 700),
+          x: Phaser.Math.Between(200, 400),
+          y: Phaser.Math.Between(200, 400),
           texture: 'enemy',
           frame: 'largeeliteknight_walk_1',
         });

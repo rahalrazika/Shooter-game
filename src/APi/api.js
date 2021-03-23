@@ -15,7 +15,7 @@ async function createScore(user, score) {
     },
     body: JSON.stringify({
       user,
-      score
+      score,
     }),
   }).then(response => response.json())
     .then(data => console.log('sucesse', data));

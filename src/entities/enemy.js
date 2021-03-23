@@ -9,7 +9,7 @@ export default class Enemy extends Phaser.Physics.Matter.Sprite {
     this.scene.add.existing(this);
     const { Body, Bodies } = Phaser.Physics.Matter.Matter;
     const enemyCollider = Bodies.circle(this.x, this.y, 12, { isSensor: false, label: 'enemyCollider' });
-    const enemySensor = Bodies.circle(this.x, this.y, 24, { isSensor: true, label: 'enemySensor' });
+    const enemySensor = Bodies.circle(this.x, this.y, 24, { isSensor: false, label: 'enemySensor' });
     const compoundBody = Body.create({
 
       parts: [enemyCollider, enemySensor],
@@ -26,10 +26,5 @@ export default class Enemy extends Phaser.Physics.Matter.Sprite {
   update() {
     this.anims.play('enemy_walk', true);
     this.body.force.x = -0.0001;
-  }
-
-  enemyOut() {
-    this.reset(this.x, 700);
-    this.body.velocity.y = 50 + Math.random() * 200;
   }
 }

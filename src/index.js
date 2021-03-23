@@ -2,25 +2,21 @@ import Phaser from 'phaser';
 import PhaserMatterCollisionPlugin from 'phaser-matter-collision-plugin/src';
 import MainScene from './scenes/mainScene';
 import IntroScene from './scenes/introScene';
+import MenuScene from './scenes/menuScene';
 
 import "./APi/api";
 
 
 const config = {
-  width: 512,
-  height: 512,
+  width: 640,
+  height: 350,
   backgroundColor: 0x999999,
   type: Phaser.AUTO,
-  parent: 'survival-game',
-
-  render: {
-    pixelArt: true,
-  },
-
+  parent: 'shooter-game',
   dom: {
     createContainer: true,
   },
-  scene: [IntroScene, MainScene],
+  scene: [IntroScene, MenuScene, MainScene],
   scale: {
     zoom: 2,
   },
