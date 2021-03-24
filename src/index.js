@@ -3,9 +3,9 @@ import PhaserMatterCollisionPlugin from 'phaser-matter-collision-plugin/src';
 import MainScene from './scenes/mainScene';
 import IntroScene from './scenes/introScene';
 import MenuScene from './scenes/menuScene';
+import GameOver from './scenes/gameOverScene';
 
-import "./APi/api";
-
+import './APi/api';
 
 const config = {
   width: 640,
@@ -16,7 +16,7 @@ const config = {
   dom: {
     createContainer: true,
   },
-  scene: [IntroScene, MenuScene, MainScene],
+  scene: [IntroScene, MenuScene, MainScene, GameOver],
   scale: {
     zoom: 2,
   },

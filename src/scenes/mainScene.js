@@ -63,24 +63,14 @@ export default class MainScene extends Phaser.Scene {
         this.score += 20;
         this.scoreText.setText(`Score: ${this.score}`);
       }
+
+      if ((bodyA.label === 'playerSensor' && bodyB.label === 'enemySensor') || (bodyB.label === 'playerSensor' && bodyA.label === 'enemySensor')) {
+        this.player.setActive(false);
+        this.player.setVisible(false);
+        this.gameOver();
+      }
     });
 
-    /*  this.collisionMap = {
-      objectA: this.playerFire,
-
-      callback: eventData => {
-        if (eventData.bodyA.label === 'fireCollider' && eventData.bodyB.label === 'enemyCollider') {
-          console.log('hit');
-        }
-      },
-    };
-    this.matterCollision.addOnCollideStart(this.collisionMap); */
-    /*
-    this.enemies.forEach((enemy, i) => {
-      this.collisionMap[`enemy_${i}`] = enemy;
-    });
-    this.matterCollision.addOnCollideStart(this.collisionMap);
-  */
     const map = this.make.tilemap({ key: 'map' });
     const tileset = map.addTilesetImage('tileset', 'tiles', 32, 32, 0, 0);
     const layer1 = map.createLayer('Tile Layer 1', tileset, 0, 0);
@@ -110,6 +100,10 @@ export default class MainScene extends Phaser.Scene {
       enemy.flipX = true;
       enemy.setBounce(1);
       enemy.update();
+
+      if (enemy.x <= 60) {
+        enemy.destroy();
+      }
     }
     this.playerFire.fires(this.playerFire.x + 10, this.playerFire.y);
     if (this.player.inputKeys.space.isDown) {
@@ -118,7 +112,9 @@ export default class MainScene extends Phaser.Scene {
       fire.x = this.player.x;
       fire.y = this.player.y;
     }
-
   }
 
+  gameOver() {
+    this.scene.start('GameOver');
+  }
 }

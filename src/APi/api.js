@@ -1,12 +1,21 @@
+import sort from './sortScore';
+
 const baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api';
 const gameId = '7iGivRjBUcI1ifQNWxsz';
 
 async function gameScores() {
-  return fetch(`${baseUrl}/games/${gameId}/scores`).then(response => response.json())
-    .then(data => console.log(data));
+  return fetch(`${baseUrl}/games/${gameId}/scores`, {
+    method: 'Get',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(response => response.json())
+    .then((data) => sort(data));
 }
 
-async function createScore(user, score) {
+async function createScore(name, score) {
   return fetch(`${baseUrl}/games/${gameId}/scores`, {
     method: 'POST',
     headers: {
@@ -14,12 +23,11 @@ async function createScore(user, score) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      user,
-      score,
+      user: name,
+      score: Number(score),
     }),
   }).then(response => response.json())
     .then(data => console.log('sucesse', data));
 }
 
-window.gameScores = gameScores;
-window.createScore = createScore;
+export { gameScores, createScore };

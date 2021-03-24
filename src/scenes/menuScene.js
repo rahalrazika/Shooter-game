@@ -13,7 +13,7 @@ export default class MenuScene extends Phaser.Scene {
 
   create() {
     this.cameras.main.setBackgroundColor(0xFFFFFF);
-    this.logo = this.add.image(250, 50, 'logo');
+    this.logo = this.add.image(250, 100, 'logo');
     this.play = this.add.image(300, 200, 'play-btn');
     this.hscore = this.add.image(300, 250, 'high-score');
 
