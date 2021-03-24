@@ -4,6 +4,8 @@ import MainScene from './scenes/mainScene';
 import IntroScene from './scenes/introScene';
 import MenuScene from './scenes/menuScene';
 import GameOver from './scenes/gameOverScene';
+import LeaderBoard from './scenes/leaderBoard';
+import PlayerName from './scenes/playerName';
 
 import './APi/api';
 
@@ -16,7 +18,7 @@ const config = {
   dom: {
     createContainer: true,
   },
-  scene: [IntroScene, MenuScene, MainScene, GameOver],
+  scene: [PlayerName, IntroScene, MenuScene, LeaderBoard, MainScene, GameOver],
   scale: {
     zoom: 2,
   },

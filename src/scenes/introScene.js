@@ -5,7 +5,7 @@ export default class IntroScene extends Phaser.Scene {
     super('IntroScene');
     this.doctorTalk = [
 
-      ' Hello player',
+      'Hello ',
       'Welcome to my personal spaceship.',
       'I’m Dr. Kureiji, I know it sounds just like crazy hihi 😁.',
       'Today I need your help to save my spaceship from',
@@ -31,15 +31,14 @@ export default class IntroScene extends Phaser.Scene {
 
   create() {
     this.cameras.main.setBackgroundColor(0xFFFFFF);
-    this.start = this.add.image(420, 300, 'start-btn');
+    this.start = this.add.image(420, 270, 'start-btn');
     this.background = this.add.image(1, 0, 'background');
     this.background.setScale(0.2);
     this.background.setOrigin(0);
     this.start.setScale(0.1);
-    this.text = this.add.text(300, 20, this.doctorTalk, {
+    this.text = this.add.text(300, 70, this.doctorTalk, {
       fill: '#000000',
-      backgroundColor: 'white',
-      font: 'Lucida Sans Typewriter',
+      fontSize: '25',
     });
     this.start.setInteractive().on('pointerdown', function startScene() {
       this.scene.start('MenuScene');

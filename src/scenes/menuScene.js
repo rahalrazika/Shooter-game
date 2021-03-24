@@ -26,9 +26,9 @@ export default class MenuScene extends Phaser.Scene {
     },
     this);
 
-  /*   this.hscore.setInteractive().on('pointerdown', function startScene() {
-        this.scene.start('HighScore');
-      },
-      this); */
+    this.hscore.setInteractive().on('pointerdown', function startScene() {
+      this.scene.start('LeaderBoard');
+    },
+    this);
   }
 }
