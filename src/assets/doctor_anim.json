@@ -1,80 +1,80 @@
 {
-    "anims": [
+  "anims": [
+    {
+      "key": "doctor_shoot",
+      "type": "frames",
+      "repeat": -1,
+      "frameRate": 12,
+      "frames": [
         {
-            "key": "doctor_shoot",
-            "type": "frames",
-            "repeat": -1,
-            "frameRate": 12,
-            "frames": [
-                {
-                    "key": "doctor",
-                    "frame": "shoot_03"
-                },
-                {
-                    "key": "doctor",
-                    "frame": "shoot_04"
-                },
-                {
-                    "key": "doctor",
-                    "frame": "shoot_05"
-                },
-                {
-                    "key": "doctor",
-                    "frame": "shoot_01"
-                },
-                {
-                    "key": "doctor",
-                    "frame": "shoot_02"
-                }
-            ]
+          "key": "doctor",
+          "frame": "shoot_03"
         },
         {
-            "key": "doctor_walk",
-            "type": "frames",
-            "repeat": -1,
-            "frameRate": 12,
-            "frames": [
-                {
-                    "key": "doctor",
-                    "frame": "run_03"
-                },
-                {
-                    "key": "doctor",
-                    "frame": "run_02"
-                },
-                {
-                    "key": "doctor",
-                    "frame": "run_04"
-                },
-                {
-                    "key": "doctor",
-                    "frame": "run_01"
-                }
-            ]
+          "key": "doctor",
+          "frame": "shoot_04"
         },
         {
-            "key": "doctor_idle",
-            "type": "frames",
-            "repeat": -1,
-            "frameRate": 12,
-            "frames": [
-                {
-                    "key": "doctor",
-                    "frame": "idle_01"
-                },
-                {
-                    "key": "doctor",
-                    "frame": "idle_02"
-                },
-                {
-                    "key": "doctor",
-                    "frame": "idle_03"
-                },
-                {
-                    "key": "doctor",
-                    "frame": "idle_04"
-                }
-            ]
+          "key": "doctor",
+          "frame": "shoot_05"
+        },
+        {
+          "key": "doctor",
+          "frame": "shoot_01"
+        },
+        {
+          "key": "doctor",
+          "frame": "shoot_02"
         }
-    ]
+      ]
+    },
+    {
+      "key": "doctor_walk",
+      "type": "frames",
+      "repeat": -1,
+      "frameRate": 12,
+      "frames": [
+        {
+          "key": "doctor",
+          "frame": "run_03"
+        },
+        {
+          "key": "doctor",
+          "frame": "run_02"
+        },
+        {
+          "key": "doctor",
+          "frame": "run_04"
+        },
+        {
+          "key": "doctor",
+          "frame": "run_01"
+        }
+      ]
+    },
+    {
+      "key": "doctor_idle",
+      "type": "frames",
+      "repeat": -1,
+      "frameRate": 12,
+      "frames": [
+        {
+          "key": "doctor",
+          "frame": "idle_01"
+        },
+        {
+          "key": "doctor",
+          "frame": "idle_02"
+        },
+        {
+          "key": "doctor",
+          "frame": "idle_03"
+        },
+        {
+          "key": "doctor",
+          "frame": "idle_04"
+        }
+      ]
+    }
+  ]
 }

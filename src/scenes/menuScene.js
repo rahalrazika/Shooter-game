@@ -12,7 +12,7 @@ export default class MenuScene extends Phaser.Scene {
   }
 
   create() {
-    this.cameras.main.setBackgroundColor(0xFFFFFF);
+    this.cameras.main.setBackgroundColor(0xffffff);
     this.logo = this.add.image(250, 100, 'logo');
     this.play = this.add.image(300, 200, 'play-btn');
     this.hscore = this.add.image(300, 250, 'high-score');
@@ -21,14 +21,20 @@ export default class MenuScene extends Phaser.Scene {
     this.play.setScale(0.4);
     this.hscore.setScale(0.2);
 
-    this.play.setInteractive().on('pointerdown', function startScene() {
-      this.scene.start('MainScene');
-    },
-    this);
+    this.play.setInteractive().on(
+      'pointerdown',
+      function startScene() {
+        this.scene.start('MainScene');
+      },
+      this
+    );
 
-    this.hscore.setInteractive().on('pointerdown', function startScene() {
-      this.scene.start('LeaderBoard');
-    },
-    this);
+    this.hscore.setInteractive().on(
+      'pointerdown',
+      function startScene() {
+        this.scene.start('LeaderBoard');
+      },
+      this
+    );
   }
 }

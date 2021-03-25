@@ -9,6 +9,9 @@ import PlayerName from './scenes/playerName';
 
 import './APi/api';
 
+export let player = { user: '', score: 0 };
+window.player = player;
+
 const config = {
   width: 640,
   height: 350,

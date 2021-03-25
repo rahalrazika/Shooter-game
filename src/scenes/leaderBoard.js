@@ -11,31 +11,41 @@ export default class LeaderBoard extends Phaser.Scene {
   }
 
   create() {
-    this.cameras.main.setBackgroundColor(0xFFFFFF);
-    this.text = this.add.text(300, 20, 'HIGH SCORE', {
-      color: 'black',
-      fontSize: '32px ',
-    }).setOrigin(0.5, 0.5);
-    let y = 210;
-    gameScores().then((scores) => {
-      const { result } = scores;
-      result.sort((first, next) => next.score - first.score);
-      for (let i = 0; i < 5; i += 1) {
-        if (result[i]) {
-          this.add.text(230,
-            y += 60,
-            `${i + 1}. ${this.scores[i].user}: ${this.scores[i].score}`,
-            { fontSize: '40px', fill: '#ffffff' });
-        }
-      }
+    this.cameras.main.setBackgroundColor(0xffffff);
+    this.text = this.add
+      .text(300, 20, 'HIGH SCORE', {
+        color: 'black',
+        fontSize: '32px ',
+      })
+      .setOrigin(0.5, 0.5);
+    let y = 0;
+
+    gameScores().then(({ result: scores }) => {
+      const sortedScores = scores.sort(
+        (first, next) => next.score - first.score
+      );
+
+      sortedScores.forEach((score, index) => {
+        this.add.text(
+          200,
+          (y += 60),
+          `${index + 1}. ${score.user}: ${score.score}`,
+          { fontSize: '40px', fill: '#000' }
+        );
+      });
+
+      console.log(this.score);
     });
 
     this.back = this.add.image(300, 300, 'back-btn');
     this.back.setScale(0.1);
 
-    this.back.setInteractive().on('pointerdown', function startScene() {
-      this.scene.start('MenuScene');
-    },
-    this);
+    this.back.setInteractive().on(
+      'pointerdown',
+      function startScene() {
+        this.scene.start('MenuScene');
+      },
+      this
+    );
   }
 }

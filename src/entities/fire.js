@@ -6,10 +6,15 @@ export default class Fire extends Phaser.Physics.Matter.Sprite {
     this.scene.add.existing(this);
     this.speed = Phaser.Math.GetSpeed(400, 1);
     const { Body, Bodies } = Phaser.Physics.Matter.Matter;
-    const fireCollider = Bodies.circle(this.x, this.y, 5, { isSensor: false, label: 'fireCollider' });
-    const fireSensor = Bodies.circle(this.x, this.y, 8, { isSensor: false, label: 'fireSensor' });
+    const fireCollider = Bodies.circle(this.x, this.y, 5, {
+      isSensor: false,
+      label: 'fireCollider',
+    });
+    const fireSensor = Bodies.circle(this.x, this.y, 8, {
+      isSensor: false,
+      label: 'fireSensor',
+    });
     const compoundBody = Body.create({
-
       parts: [fireCollider, fireSensor],
       frictionAir: 0,
     });

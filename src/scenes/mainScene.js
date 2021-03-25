@@ -4,6 +4,8 @@ import fire from '../assets/fire1.png';
 import Enemy from '../entities/enemy';
 import Fire from '../entities/fire';
 
+import { player } from '../index';
+
 export default class MainScene extends Phaser.Scene {
   constructor() {
     super('MainScene');
@@ -19,7 +21,11 @@ export default class MainScene extends Phaser.Scene {
 
   create() {
     this.player = new Player({
-      scene: this, x: 100, y: 150, texture: 'doctor', frame: 'idle_01',
+      scene: this,
+      x: 100,
+      y: 150,
+      texture: 'doctor',
+      frame: 'idle_01',
     });
 
     this.player.setFixedRotation();
@@ -42,12 +48,18 @@ export default class MainScene extends Phaser.Scene {
       loop: true,
     });
 
-    this.score = 0;
+    // this.score = 0;
 
-    this.scoreText = this.add.text(30, -30, 'Score: 0', { fontSize: '17px', fill: '#ffffff' });
+    this.scoreText = this.add.text(30, -30, 'Score: 0', {
+      fontSize: '17px',
+      fill: '#ffffff',
+    });
 
     this.matter.world.on('collisionstart', (event, bodyA, bodyB) => {
-      if ((bodyA.label === 'fireCollider' && bodyB.label === 'enemyCollider') || (bodyB.label === 'fireCollider' && bodyA.label === 'enemyCollider')) {
+      if (
+        (bodyA.label === 'fireCollider' && bodyB.label === 'enemyCollider') ||
+        (bodyB.label === 'fireCollider' && bodyA.label === 'enemyCollider')
+      ) {
         const enemyCollider = bodyA === 'enemyCollider' ? bodyA : bodyB;
         const fire = enemyCollider.gameObject;
         if (fire.isBeingDestroyed) {
@@ -58,13 +70,19 @@ export default class MainScene extends Phaser.Scene {
         this.tweens.add({
           targets: fire,
           alpha: { value: 0, duration: 150, ease: 'fire' },
-          onComplete: function destroy(fire) { fire.destroy(); }.bind(this, fire),
+          onComplete: function destroy(fire) {
+            fire.destroy();
+          }.bind(this, fire),
         });
-        this.score += 20;
+        // this.score += 20;
+        player.score += 20;
         this.scoreText.setText(`Score: ${this.score}`);
       }
 
-      if ((bodyA.label === 'playerSensor' && bodyB.label === 'enemySensor') || (bodyB.label === 'playerSensor' && bodyA.label === 'enemySensor')) {
+      if (
+        (bodyA.label === 'playerSensor' && bodyB.label === 'enemySensor') ||
+        (bodyB.label === 'playerSensor' && bodyA.label === 'enemySensor')
+      ) {
         this.player.setActive(false);
         this.player.setVisible(false);
         this.gameOver();
@@ -85,7 +103,6 @@ export default class MainScene extends Phaser.Scene {
       left: Phaser.Input.Keyboard.KeyCodes.Q,
       right: Phaser.Input.Keyboard.KeyCodes.D,
       space: Phaser.Input.Keyboard.KeyCodes.SPACE,
-
     });
   }
 

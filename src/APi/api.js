@@ -1,4 +1,5 @@
-const baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api';
+const baseUrl =
+  'https://us-central1-js-capstone-backend.cloudfunctions.net/api';
 const gameId = '7iGivRjBUcI1ifQNWxsz';
 
 async function gameScores() {
@@ -8,12 +9,13 @@ async function gameScores() {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-  })
-    .then(response => response.json())
-    .then((data) => console.log(data));
+  }).then((response) => response.json());
 }
+window.gameScores = gameScores;
 
 async function createScore(user, score) {
+  console.log(user, score);
+
   return fetch(`${baseUrl}/games/${gameId}/scores`, {
     method: 'POST',
     headers: {
@@ -24,8 +26,9 @@ async function createScore(user, score) {
       user,
       score,
     }),
-  }).then(response => response.json())
-    .then(data => console.log('sucesse', data));
+  })
+    .then((response) => response.json())
+    .then((data) => console.log('success', data));
 }
 
 export { gameScores, createScore };

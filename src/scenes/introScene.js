@@ -4,7 +4,6 @@ export default class IntroScene extends Phaser.Scene {
   constructor() {
     super('IntroScene');
     this.doctorTalk = [
-
       'Hello ',
       'Welcome to my personal spaceship.',
       'I’m Dr. Kureiji, I know it sounds just like crazy hihi 😁.',
@@ -20,7 +19,6 @@ export default class IntroScene extends Phaser.Scene {
       'Use space to Shoot',
 
       "Let's have some fun 🤪",
-
     ];
   }
 
@@ -30,7 +28,7 @@ export default class IntroScene extends Phaser.Scene {
   }
 
   create() {
-    this.cameras.main.setBackgroundColor(0xFFFFFF);
+    this.cameras.main.setBackgroundColor(0xffffff);
     this.start = this.add.image(420, 270, 'start-btn');
     this.background = this.add.image(1, 0, 'background');
     this.background.setScale(0.2);
@@ -40,9 +38,12 @@ export default class IntroScene extends Phaser.Scene {
       fill: '#000000',
       fontSize: '25',
     });
-    this.start.setInteractive().on('pointerdown', function startScene() {
-      this.scene.start('MenuScene');
-    },
-    this);
+    this.start.setInteractive().on(
+      'pointerdown',
+      function startScene() {
+        this.scene.start('MenuScene');
+      },
+      this
+    );
   }
 }

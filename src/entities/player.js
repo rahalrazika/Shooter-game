@@ -2,17 +2,20 @@ import Phaser from 'phaser';
 
 export default class Player extends Phaser.Physics.Matter.Sprite {
   constructor(data) {
-    const {
-      scene, x, y, texture, frame,
-    } = data;
+    const { scene, x, y, texture, frame } = data;
     super(scene.matter.world, x, y, texture, frame);
     this.scene.add.existing(this);
 
     const { Body, Bodies } = Phaser.Physics.Matter.Matter;
-    const playerCollider = Bodies.circle(this.x, this.y, 12, { isSensor: false, label: 'playerCollider' });
-    const playerSensor = Bodies.circle(this.x, this.y, 24, { isSensor: false, label: 'playerSensor' });
+    const playerCollider = Bodies.circle(this.x, this.y, 12, {
+      isSensor: false,
+      label: 'playerCollider',
+    });
+    const playerSensor = Bodies.circle(this.x, this.y, 24, {
+      isSensor: false,
+      label: 'playerSensor',
+    });
     const compoundBody = Body.create({
-
       parts: [playerCollider, playerSensor],
       frictionAir: 0,
     });
@@ -20,7 +23,11 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
   }
 
   static preload(scene) {
-    scene.load.atlas('doctor', '../src/assets/doctor.png', '../src/assets/doctor_atlas.json');
+    scene.load.atlas(
+      'doctor',
+      '../src/assets/doctor.png',
+      '../src/assets/doctor_atlas.json'
+    );
     scene.load.animation('doctor', '../src/assets/doctor_anim.json');
   }
 
@@ -42,7 +49,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     } else if (this.inputKeys.down.isDown) {
       playerVelocity.y = 1;
     }
-    
+
     playerVelocity.normalize();
     playerVelocity.scale(speed);
     this.setVelocity(playerVelocity.x, playerVelocity.y);
