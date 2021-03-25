@@ -17,14 +17,13 @@ export default class LeaderBoard extends Phaser.Scene {
       fontSize: '32px ',
     }).setOrigin(0.5, 0.5);
     let y = 210;
-    gameScores().then((scores) => {
-      const { result } = scores;
-      result.sort((first, next) => next.score - first.score);
+    gameScores().then((result) => {
+      // result.sort((first, next) => next.score - first.score);
       for (let i = 0; i < 5; i += 1) {
         if (result[i]) {
           this.add.text(230,
             y += 60,
-            `${i + 1}. ${this.scores[i].user}: ${this.scores[i].score}`,
+            `${i + 1}. ${this.result[i].user}: ${this.result[i].score}`,
             { fontSize: '40px', fill: '#ffffff' });
         }
       }

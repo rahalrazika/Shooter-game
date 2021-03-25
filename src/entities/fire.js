@@ -22,7 +22,7 @@ export default class Fire extends Phaser.Physics.Matter.Sprite {
     this.setVisible(true);
   }
 
-  update(time, delta) {
+  update(delta) {
     this.x += this.speed * delta;
 
     if (this.y < -50) {

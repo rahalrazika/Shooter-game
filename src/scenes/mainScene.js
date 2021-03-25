@@ -23,11 +23,11 @@ export default class MainScene extends Phaser.Scene {
     });
 
     this.player.setFixedRotation();
-    this.playerFire = new Fire(this, 100, 150);
+    this.playerFire = new Fire(this, 200, 150);
     this.enemies = this.add.group();
 
     this.time.addEvent({
-      delay: 10000,
+      delay: 2000,
       callback() {
         const enemy = new Enemy({
           scene: this,
@@ -50,16 +50,7 @@ export default class MainScene extends Phaser.Scene {
       if ((bodyA.label === 'fireCollider' && bodyB.label === 'enemyCollider') || (bodyB.label === 'fireCollider' && bodyA.label === 'enemyCollider')) {
         const enemyCollider = bodyA === 'enemyCollider' ? bodyA : bodyB;
         const fire = enemyCollider.gameObject;
-        if (fire.isBeingDestroyed) {
-          fire.isBeingDestroyed = true;
-        }
-        fire.isBeingDestroyed = true;
-        this.matter.world.remove(enemyCollider);
-        this.tweens.add({
-          targets: fire,
-          alpha: { value: 0, duration: 150, ease: 'fire' },
-          onComplete: function destroy(fire) { fire.destroy(); }.bind(this, fire),
-        });
+         fire.destroy();
         this.score += 20;
         this.scoreText.setText(`Score: ${this.score}`);
       }
@@ -105,7 +96,7 @@ export default class MainScene extends Phaser.Scene {
         enemy.destroy();
       }
     }
-    this.playerFire.fires(this.playerFire.x + 10, this.playerFire.y);
+    this.playerFire.fires(this.playerFire.x , this.playerFire.y);
     if (this.player.inputKeys.space.isDown) {
       this.player.anims.play('doctor_shoot', true);
       const fire = this.playerFire;
