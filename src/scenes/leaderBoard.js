@@ -12,24 +12,27 @@ export default class LeaderBoard extends Phaser.Scene {
 
   create() {
     this.cameras.main.setBackgroundColor(0xFFFFFF);
-    this.text = this.add.text(300, 20, 'HIGH SCORE', {
+    this.text = this.add.text(270, 20, 'HIGH SCORE', {
       color: 'black',
       fontSize: '32px ',
     }).setOrigin(0.5, 0.5);
-    let y = 210;
-    gameScores().then((result) => {
-      // result.sort((first, next) => next.score - first.score);
-      for (let i = 0; i < 5; i += 1) {
-        if (result[i]) {
-          this.add.text(230,
-            y += 60,
-            `${i + 1}. ${this.result[i].user}: ${this.result[i].score}`,
-            { fontSize: '40px', fill: '#ffffff' });
-        }
-      }
+    let y = 15;
+    gameScores().then(({ result: scores }) => {
+      const sortedScores = scores.sort(
+        (first, next) => next.score - first.score,
+      );
+
+      sortedScores.forEach((score, index) => {
+        this.add.text(
+          200,
+          (y += 30),
+          `${index + 1}. ${score.user}: ${score.score}`,
+          { fontSize: '20px', fill: '#000' },
+        );
+      });
     });
 
-    this.back = this.add.image(300, 300, 'back-btn');
+    this.back = this.add.image(250, 300, 'back-btn');
     this.back.setScale(0.1);
 
     this.back.setInteractive().on('pointerdown', function startScene() {

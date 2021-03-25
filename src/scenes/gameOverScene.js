@@ -14,7 +14,6 @@ export default class GameOver extends Phaser.Scene {
     this.cameras.main.setBackgroundColor(0xFFFFFF);
     this.gameOver = this.add.image(300, 180, 'gameOver');
     this.replay = this.add.image(300, 250, 'replay-btn');
-
     this.gameOver.setScale(2);
     this.replay.setScale(0.1);
 
