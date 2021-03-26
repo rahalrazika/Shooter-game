@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { gameScores } from '../APi/api';
 
 export default class GameOver extends Phaser.Scene {
   constructor() {

@@ -1,11 +1,13 @@
 import Phaser from 'phaser';
+import { gameScores } from '../APi/api';
 
 export default class IntroScene extends Phaser.Scene {
   constructor() {
     super('IntroScene');
+
     this.doctorTalk = [
 
-      'Hello ',
+      'Hello  player',
       'Welcome to my personal spaceship.',
       'I’m Dr. Kureiji, I know it sounds just like crazy hihi 😁.',
       'Today I need your help to save my spaceship from',
@@ -36,6 +38,7 @@ export default class IntroScene extends Phaser.Scene {
     this.background.setScale(0.2);
     this.background.setOrigin(0);
     this.start.setScale(0.1);
+
     this.text = this.add.text(300, 70, this.doctorTalk, {
       fill: '#000000',
       fontSize: '25',

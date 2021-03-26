@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { createScore } from '../APi/api';
 
 export default class PlayerName extends Phaser.Scene {
   constructor() {
@@ -20,9 +21,12 @@ export default class PlayerName extends Phaser.Scene {
     const submit = document.querySelector('button');
 
     submit.onclick = () => {
-      const user = document.querySelector('input').value;
-      this.registry.set('playerName', user);
-      this.scene.start('IntroScene');
+      const userName = document.querySelector('input').value;
+      if (userName) {
+        createScore.user = userName;
+        this.scene.start('IntroScene');
+      }
+      return this.add.text(200, 250, ' Player Name field is empty ', { fontSize: '15px', fill: 'red' });
     };
   }
 }

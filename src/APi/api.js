@@ -23,8 +23,8 @@ async function createScore(user, score) {
       user,
       score,
     }),
-  }).then(response => response.json())
-    .then(data => console.log('sucesse', data));
+  }).then(response => response.json());
+    //.then(data => console.log('sucesse', data));
 }
 
 export { gameScores, createScore };
