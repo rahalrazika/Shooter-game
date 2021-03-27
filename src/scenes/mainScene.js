@@ -3,11 +3,17 @@ import Player from '../entities/player';
 import fire from '../assets/fire1.png';
 import Enemy from '../entities/enemy';
 import Fire from '../entities/fire';
+// import { createScore } from '../APi/api';
 
 export default class MainScene extends Phaser.Scene {
   constructor() {
     super('MainScene');
   }
+
+  /*  init(data) {
+    this.userName = data.user;
+
+  } */
 
   preload() {
     Player.preload(this);
@@ -106,6 +112,7 @@ export default class MainScene extends Phaser.Scene {
   }
 
   gameOver() {
-    this.scene.start('GameOver');
+    // createScore(this.userName, this.score);
+    this.scene.start('GameOver', { score: this.score });
   }
 }
