@@ -22,7 +22,7 @@ export default class GameOver extends Phaser.Scene {
     this.replay = this.add.image(300, 250, 'replay-btn');
     this.gameOver.setScale(2);
     this.replay.setScale(0.1);
-    gameScores({user: this.userName, score: this.score});
+    gameScores({ user: this.userName, score: this.score });
     this.replay.setInteractive().on('pointerdown', function startScene() {
       this.scene.start('PlayerName');
     },
