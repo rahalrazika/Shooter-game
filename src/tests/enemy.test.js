@@ -1,4 +1,3 @@
-import { TestScheduler } from 'jest';
 import Phaser from 'phaser';
 import Enemy from '../entities/enemy';
 

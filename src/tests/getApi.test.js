@@ -26,7 +26,7 @@ it('expect equal to  score', () => {
     });
 });
 
-it('expect equal to  score and user name ', () => {
+it('expect equal to  score and username ', () => {
   gameScores()
     .then((data) => {
       expect(data).toEqual(
@@ -39,6 +39,7 @@ it('expect equal to  score and user name ', () => {
       );
     });
 });
+
 it('expect to be an object ', () => {
   gameScores()
     .then((data) => {
