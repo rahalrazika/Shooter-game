@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "dev": "webpack --watch --mode development",
-    "build": "webpack -p --env production"
+    "build": "webpack --mode production",
+    "start": "npm run build && webpack-dev-server --port=8080 --open"
   },
   "repository": {
     "type": "git",
