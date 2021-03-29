@@ -12,7 +12,7 @@ In this game, we need to help Dr. Kureijī to eliminate these creatures to prote
 ## How to Play the Game ?
 ![keys](./src/assets/keyboard.png)
 
-Use Q S D W  Keys to move, Space Key to shoot.
+Use arrow  Keys to move, Space Key to shoot.
 
 ## Built With 🔨
 - Javascript Vanilla 

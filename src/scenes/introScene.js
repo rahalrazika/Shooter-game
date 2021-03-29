@@ -33,10 +33,7 @@ export default class IntroScene extends Phaser.Scene {
       'control them due to an accidental mistake within the ingredients.',
       'Be careful, these creatures can transform only by touching solid ',
       'objects including myself.Let me give you some tips:',
-      'Use Q to go Left.',
-      'Use D to go Right.',
-      'Use S to go Up.',
-      'Use W to go DOWN.',
+      'Use Direction Keys to move',
       'Use space to Shoot',
 
       "Let's have some fun 🤪",
