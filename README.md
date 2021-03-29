@@ -21,7 +21,7 @@ Use arrow  Keys to move, Space Key to shoot.
 
 
 ## Live Demo 🚀
-[crazy Lab]()
+[crazy Lab](https://rawcdn.githack.com/rahalrazika/Shooter-game/2de922f01bc9a5b4b7ed8de5f32d6b1215a37b0d/dist/index.html)
 
 ## Getting Started 💻
 
