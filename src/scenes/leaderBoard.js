@@ -23,12 +23,14 @@ export default class LeaderBoard extends Phaser.Scene {
       );
 
       sortedScores.forEach((score, index) => {
-        this.add.text(
-          200,
-          (y += 30),
-          `${index + 1}. ${score.user}: ${score.score}`,
-          { fontSize: '20px', fill: '#000' },
-        );
+        if (index < 7) {
+          this.add.text(
+            200,
+            (y += 30),
+            `${index + 1}. ${score.user}: ${score.score}`,
+            { fontSize: '20px', fill: '#000' },
+          );
+        }
       });
     });
 

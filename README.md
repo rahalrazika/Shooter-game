@@ -9,7 +9,7 @@ Dr. Kureijī is an adventurous foolish Doctor willing to try new experiments.
 One night, while Dr. Kureijī was doing his lab experiments, he made a mistake with the ingredients which lead to the creation of small evil creatures that cannot be controlled. not only that, these creatures can transform only by touching solid objects.
 In this game, we need to help Dr. Kureijī to eliminate these creatures to protect his spaceship and himself eventually.
 
-## How to Play the Game
+## How to Play the Game ?
 ![keys](./src/assets/keyboard.png)
 
 Use Q S D W  Keys to move, Space Key to shoot.
