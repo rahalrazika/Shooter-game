@@ -6,8 +6,7 @@
   "scripts": {
     "test": "jest",
     "dev": "webpack --watch --mode development",
-    "build": "webpack --mode production",
-    "start": "npm run build && webpack-dev-server --port=8080 --open"
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -57,6 +56,7 @@
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "^3.17.2",
     "webpack": "^5.10.0",
-    "webpack-cli": "^4.2.0"
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }

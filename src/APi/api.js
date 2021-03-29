@@ -1,6 +1,5 @@
 const baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api';
 const gameId = '7iGivRjBUcI1ifQNWxsz';
-
 async function gameScores() {
   return fetch(`${baseUrl}/games/${gameId}/scores`, {
     method: 'Get',
@@ -25,7 +24,6 @@ async function createScore(user, score) {
       score: submitionScores,
     }),
   }).then(response => response.json());
-  // .then(data => console.log('sucesse', data));
 }
 
 export { gameScores, createScore };
