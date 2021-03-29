@@ -5,6 +5,10 @@ export default class MenuScene extends Phaser.Scene {
     super('MenuScene');
   }
 
+  init(data) {
+    this.userName = data.user;
+  }
+
   preload() {
     this.load.image('logo', '../src/assets/logo.png');
     this.load.image('play-btn', '../src/assets/play-btnO.png');
@@ -22,7 +26,7 @@ export default class MenuScene extends Phaser.Scene {
     this.hscore.setScale(0.2);
 
     this.play.setInteractive().on('pointerdown', function startScene() {
-      this.scene.start('MainScene');
+      this.scene.start('MainScene', { user: this.userName });
     },
     this);
 
