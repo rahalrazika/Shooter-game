@@ -21,7 +21,7 @@ Use arrow  Keys to move, Space Key to shoot.
 
 
 ## Live Demo 🚀
-[crazy Lab](https://rawcdn.githack.com/rahalrazika/Shooter-game/2de922f01bc9a5b4b7ed8de5f32d6b1215a37b0d/dist/index.html)
+[crazy Lab](https://rawcdn.githack.com/rahalrazika/Shooter-game/ac33e93465dd7d38d58ac0a7e6d28f3e10591969/dist/index.html)
 
 ## Getting Started 💻
 
@@ -84,6 +84,9 @@ Contributions, issues and feature requests are welcome!
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-
+- CartoonDetective Sprite
+- [16x16 Fantasy RPG Characters](https://superdark.itch.io/16x16-free-npc-pack)
+- [32x32 RPG Tilesets](https://v-ktor.itch.io/32x32-rpg-tilesets)
+- [Leaderboard API service](https://www.notion.so/Leaderboard-API-service-24c0c3c116974ac49488d4eb0267ade3)
 -  Odin projects
 -  Microverse

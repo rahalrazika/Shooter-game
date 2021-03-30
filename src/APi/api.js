@@ -9,11 +9,10 @@ async function gameScores() {
     },
   })
     .then(response => response.json());
- 
 }
 
 async function createScore(user, score) {
-  const submitionScores = score === 0 ? 1 : score;
+  const submissionScores = score === 0 ? 1 : score;
   return fetch(`${baseUrl}/games/${gameId}/scores`, {
     method: 'POST',
     headers: {
@@ -22,7 +21,7 @@ async function createScore(user, score) {
     },
     body: JSON.stringify({
       user,
-      score: submitionScores,
+      score: submissionScores,
     }),
   }).then(response => response.json());
 }
