@@ -9,6 +9,7 @@ async function gameScores() {
     },
   })
     .then(response => response.json());
+ 
 }
 
 async function createScore(user, score) {

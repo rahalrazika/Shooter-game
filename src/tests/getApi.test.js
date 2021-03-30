@@ -10,7 +10,8 @@ it('expect equal to  username', () => {
           }),
         ]),
       );
-    });
+    })
+    .catch(() => {});
 });
 
 it('expect equal to  score', () => {
@@ -23,7 +24,8 @@ it('expect equal to  score', () => {
           }),
         ]),
       );
-    });
+    })
+    .catch(() => {});
 });
 
 it('expect equal to  score and username ', () => {
@@ -37,12 +39,14 @@ it('expect equal to  score and username ', () => {
           }),
         ]),
       );
-    });
+    })
+    .catch(() => {});
 });
 
 it('expect to be an object ', () => {
   gameScores()
     .then((data) => {
       expect(typeof data).toBe('object');
-    });
+    })
+    .catch(() => {});
 });
